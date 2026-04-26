@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For You</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    overflow: hidden;
+    color: white;
+}
+
+.slide {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding-top: 30vh;
+}
+
+.slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: auto;
+}
+
+.active {
+    display: block;
+    animation: fade 1.2s;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 20px;
+    background: #ff8fa3;
+    color: white;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active" style="background-image:url('him.jpg');">
+<div class="content">
+<h1>Hey...</h1>
+<p>I don’t know if you’ll stay till the end</p>
+<button onclick="nextSlide()">start</button>
+</div>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide" style="background-image:url('memories.jpg');">
+<div class="content">
+<h2>I’ve been thinking about us</h2>
+<button onclick="nextSlide()">next</button>
+</div>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide" style="background-image:url('his.jpg');">
+<div class="content">
+<h2>I’m sorry</h2>
+<p>
+Ik ive made mistakes,<br>
+still sorry,<br>
+you gave up completely ik<br>
+but still sorry adichick
+</p>
+<button onclick="nextSlide()">next</button>
+</div>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide" style="background-image:url('aesthetic.jpg');">
+<div class="content">
+<h2>I’m not forcing anything</h2>
+<button onclick="nextSlide()">next</button>
+</div>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide" style="background-image:url('yo.jpg');">
+<div class="content">
+<h2>You mean a lot to me</h2>
+<button onclick="nextSlide()">next</button>
+</div>
+</div>
+
+<!-- Slide 6 -->
+<div class="slide" style="background-image:url('place.jpg');">
+<div class="content">
+<h2>I still care</h2>
+<p>
+i try my best to not bother u<br>
+but this time i failed
+</p>
+<button onclick="nextSlide()">next</button>
+</div>
+</div>
+
+<!-- Slide 7 -->
+<div class="slide" style="background-image:url('nig.jpg');">
+<div class="content">
+<h2>Some nights are still hard</h2>
+<button onclick="nextSlide()">next</button>
+</div>
+</div>
+
+<!-- Slide 8 -->
+<div class="slide" style="background-image:url('nom.jpg');">
+<div class="content">
+<h1>Thankyou</h1>
+<p>for being MY LIFE</p>
+<button onclick="nextSlide()">next</button>
+</div>
+</div>
+
+
+<!-- Slide 9 -->
+ <div class="slide" style="background-image:url('wo.jpg'); position:relative;">
+  <div class="content" style="position:relative; z-index:100;">
+    <h2>Do you want to talk?</h2>
+    <button onclick="yes()" style="position:relative; z-index:200;">yes</button>
+
+<button onclick="no()" style="position:relative; z-index:200;">
+    no
+</button>
+  </div>
+</div>
+<script>
+    let currentSlide = 0;
+    let slides = document.getElementsByClassName("slide");
+
+    function showSlide(index) {
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[index].style.display = "block";
+    }
+
+    function nextSlide() {
+        currentSlide++;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide--;
+        if (currentSlide < 0) {
+            currentSlide = slides.length - 1;
+        }
+        showSlide(currentSlide);
+    }
+
+    function yes() {
+        window.location.href = "https://wa.me/918604954582";
+    }
+
+    function no() {
+        alert("I’ll wait 🙂");
+    }
+
+    showSlide(currentSlide);
+</script>
+</body>
+</html>
